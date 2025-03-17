@@ -1,0 +1,47 @@
+Crie um algoritmo que recebe um cupom de desconto
+e um valor da compra total
+
+se o nome do cupom for: "CUPOM20" E o valor da compra maior que 200
+aplique um desconto de 20%
+
+mostre para o usuário
+o valor total da compra
+o valor do desconto
+e o valor do total da compra - desconto
+
+
+
+
+
+
+
+Crie um algoritmo que peça o usuário e a senha
+se o usuário for igual a "admin" E a senha for igual a "admin123"
+imprima: "Acesso concedido!"
+se não
+imprima: "Acesso negado!!!"
+
+
+
+
+
+Crie um algoritmo que pergunte
+se o aluno está inscrito no curso
+e quantas aulas tem no curso
+e quantas aulas ele já assistiu
+
+se ele for inscrito
+e se ele tiver assitido 80%
+das aulas 
+imprima: "Você pode emitir o certificado"
+se não se
+ele for somente inscrito
+imprima: "Voce precisa assitir x
+aulas para ter o certificado"
+se não
+imprima: "Vc nem é aluno"
+
+
+
+
+
