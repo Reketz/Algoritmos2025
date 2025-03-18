@@ -15,10 +15,10 @@ if(numero > 9):
 unidades = numero
 
 if(centenas > 1):
-    saida = saida + " {centenas} centenas, "
+    saida = saida + f" {centenas} centenas, "
 elif(centenas == 1):
-    saida = saida + " {centenas} centena, "
-    
+    saida = saida + f" {centenas} centena, "
+
 print(f"O número de centenas: {centenas}")
 print(f"O número de dezenas: {dezenas}")
 print(f"O número de unidades: {unidades}")
