@@ -17,42 +17,47 @@ while True:
     if(opcao == '0'):
         break
 
-    if(opcao == '1'):
+    elif(opcao == '1'):
         nome = input("Digite seu nome: ")
         email = input("Digite seu email: ")
         senha = input("Digite sua senha: ")
-        usuarios.append([nome, email, senha])
+        usuario = {
+            'nome': nome,
+            'email': email,
+            'senha': senha
+        }
+        usuarios.append(usuario)
         print("Usuário cadastrado com sucesso!")
         os.system('cls' if os.name == 'nt' else 'clear')
     
-    if(opcao == '2'):
+    elif(opcao == '2'):
         print("\nLista de usuários\n")
         for usu in usuarios:
-            print(f"Nome: {usu[0]}")
-            print(f"Email: {usu[1]}")     
+            print(f"Nome: {usu["nome"]}")
+            print(f"Email: {usu["email"]}")     
             print("-" * 50) 
 
         print("\n")  
 
-    if(opcao == '3'):
+    elif(opcao == '3'):
         emailBusca = input("Digite um email para busca: ")
         encontrado = False
         for usu in usuarios:
-            if(emailBusca == usu[1]):
+            if(emailBusca == usu["email"]):
                 encontrado = True
                 print("Encontrou o usuário\n\n")
                 print("-" * 50)
-                print(f"Nome: {usu[0]}")
-                print(f"Email: {usu[1]}")
+                print(f"Nome: {usu["nome"]}")
+                print(f"Email: {usu["email"]}")
                 print("-" * 50)
 
         if(not encontrado):
             print("Usuário não existe!\n\n")
-    if(opcao == '4'):
+    elif(opcao == '4'):
         emailBusca = input("Digite um email para remover: ")
         indice = -1
         for ind in range(len(usuarios)):
-            if(emailBusca == usuarios[ind][1]):
+            if(emailBusca == usuarios[ind]["email"]):
                 indice = ind
 
         if(indice == -1):
@@ -60,11 +65,11 @@ while True:
         else:
             usuarios.pop(indice)
         
-    if(opcao == '5'):
+    elif(opcao == '5'):
         emailBusca = input("Digite um email para atualizar: ")
         indice = -1
         for ind in range(len(usuarios)):
-            if(emailBusca == usuarios[ind][1]):
+            if(emailBusca == usuarios[ind]["email"]):
                 indice = ind
 
         if(indice == -1):
@@ -73,5 +78,7 @@ while True:
             nomeNovo = input("Digite seu novo nome: ")
             senhaNova = input("Digite sua nova senha: ")
 
-            usuarios[indice][0] = nomeNovo
-            usuarios[indice][2] = senhaNova
+            usuarios[indice]["nome"] = nomeNovo
+            usuarios[indice]["senha"] = senhaNova
+    else:
+        print("Opção inválida, escolha novamente...")
