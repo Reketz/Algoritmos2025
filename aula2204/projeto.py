@@ -20,6 +20,16 @@ while True:
     elif(opcao == '1'):
         nome = input("Digite seu nome: ")
         email = input("Digite seu email: ")
+        
+        emailExiste = False
+        for usu in usuarios:
+            if(email == usu["email"]):
+                print("E-email já existe")
+                emailExiste = True
+        
+        if (emailExiste == True):
+            continue
+
         senha = input("Digite sua senha: ")
         usuario = {
             'nome': nome,
