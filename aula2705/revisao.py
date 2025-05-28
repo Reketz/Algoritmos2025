@@ -13,14 +13,19 @@ def converterAluno(linha):
     return aluno
 
 def listarAlunos():
-
+    alunos = []
     with open(caminho, 'r') as arquivo:
         for indice, linha in enumerate(arquivo):
             if(indice != 0):
                 aluno = converterAluno(linha)
-                print(aluno['nome'])
+                alunos.append(aluno)
+            
+    return alunos
 
-listarAlunos()
+def imprimirAlunos():
+    alunos = listarAlunos()
+    for a in alunos:
+        print("Nome: ", a['nome'])
 
 def adicionarAluno():
     nome = input("Digite o nome: ")
@@ -35,5 +40,38 @@ def adicionarAluno():
     }
     with open(caminho, '+a') as arquivo:
         arquivo.write(converterDicionario(aluno))
+
+def salvarDados(alunos):
+    with open(caminho, 'w') as arquivo:
+        arquivo.write('Nome,AV1,AV2,AV3\n')
+        for aluno in alunos:
+            arquivo.write(converterDicionario(aluno).strip() + "\n")
+
+def alterarAluno():
+    nome = input("Digite o nome do aluno: ")
+    alunos = listarAlunos()
+    for a in alunos:
+        if(a['nome'] == nome):
+            a['av1'] = float(input("Digite a nota 1: "))
+            a['av2'] = float(input("Digite a nota 2: "))
+            a['av3'] = float(input("Digite a nota 3: "))
+            salvarDados(alunos)
+            break
+
+
+def excluirAluno():
+    nome = input("Digite o nome do aluno: ")
+    alunos = listarAlunos()
+    alunosAtual = []
+    for a in alunos:
+        if(a['nome'] != nome):
+            alunosAtual.append(a)
+
+    salvarDados(alunosAtual)
+    
+
+excluirAluno()
+
+#alterarAluno()
 
 #adicionarAluno()
